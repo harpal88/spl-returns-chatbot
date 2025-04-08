@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -11,7 +11,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
     setIsLoggedIn(false);
-    window.location.href = "/#/";  // Force redirect to login
+    window.location.hash = "/"; // Force redirect to login
   };
 
   return (
@@ -19,11 +19,19 @@ function App() {
       <Routes>
         <Route 
           path="/" 
-          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login setIsLoggedIn={setIsLoggedIn} />} 
+          element={
+            isLoggedIn ? 
+              <Navigate to="/dashboard" /> : 
+              <Login setIsLoggedIn={setIsLoggedIn} />
+          } 
         />
         <Route
           path="/dashboard"
-          element={isLoggedIn ? <Dashboard handleLogout={handleLogout} /> : <Navigate to="/" />}
+          element={
+            isLoggedIn ? 
+              <Dashboard handleLogout={handleLogout} /> : 
+              <Navigate to="/" />
+          }
         />
       </Routes>
     </HashRouter>
