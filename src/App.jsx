@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <HashRouter basename="/spl-returns-chatbot">
+    <HashRouter>
       <Routes>
         <Route 
           path="/" 

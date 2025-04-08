@@ -50,7 +50,7 @@ const Login = () => {
 
             if (email === "test@example.com" && password === "password123") {
               localStorage.setItem("loggedIn", "true");
-              window.location.href = "/spl-returns-chatbot/#/dashboard";
+              window.location.href = "/#/dashboard";
             } else {
               alert("Invalid credentials");
             }
