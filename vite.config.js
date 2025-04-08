@@ -2,9 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: './', // Changed from repo name to relative path
+  base: '/spl-returns-chatbot/', // Must match your repo name exactly
   plugins: [react()],
   build: {
-    outDir: 'docs' // GitHub Pages can automatically serve from /docs
+    outDir: 'docs',
+    emptyOutDir: true,
+    assetsDir: 'assets' // Explicit assets directory
   }
 })
