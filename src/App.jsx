@@ -14,27 +14,15 @@ function App() {
   };
 
   return (
-    <HashRouter>
+    <HashRouter basename="/spl-returns-chatbot">
       <Routes>
         <Route 
           path="/" 
-          element={
-            isLoggedIn ? (
-              <Navigate to="/dashboard" replace />
-            ) : (
-              <Login onLogin={() => setIsLoggedIn(true)} />
-            )
-          } 
+          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />} 
         />
         <Route
           path="/dashboard"
-          element={
-            isLoggedIn ? (
-              <Dashboard onLogout={handleLogout} />
-            ) : (
-              <Navigate to="/" replace />
-            )
-          }
+          element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />}
         />
       </Routes>
     </HashRouter>
