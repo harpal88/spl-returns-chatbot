@@ -42,20 +42,21 @@ const Login = () => {
         </div>
 
         <form
-          className="space-y-4"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const email = e.target.email.value;
-            const password = e.target.password.value;
+      className="space-y-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
-            if (email === "test@example.com" && password === "password123") {
-              localStorage.setItem("loggedIn", "true");
-              window.location.href = "/#/dashboard";
-            } else {
-              alert("Invalid credentials");
-            }
-          }}
-        >
+        if (email === "test@example.com" && password === "password123") {
+          localStorage.setItem("loggedIn", "true");
+          setIsLoggedIn(true);
+          window.location.hash = "/dashboard";  // Update hash navigation
+        } else {
+          alert("Invalid credentials");
+        }
+      }}
+    >
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <FiMail className="text-gray-400" />

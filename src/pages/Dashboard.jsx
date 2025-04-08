@@ -10,7 +10,7 @@ import {
   FiRefreshCw
 } from 'react-icons/fi';
 
-const Dashboard = ({ onLogout }) => {
+const Dashboard = ({ handleLogout  }) => {
   const navigate = useNavigate();
   const user = {
     name: 'John Doe',
@@ -18,11 +18,6 @@ const Dashboard = ({ onLogout }) => {
     avatar: 'https://randomuser.me/api/portraits/men/1.jpg'
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("loggedIn");
-    onLogout(); // Call the logout handler from props
-    navigate("/");
-  };
 
   return (
     <div className="h-screen w-screen flex bg-gradient-to-br from-gray-50 to-blue-50/30">
